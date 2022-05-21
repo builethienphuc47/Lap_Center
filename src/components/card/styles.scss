@@ -1,0 +1,35 @@
+.card-product {
+  width: 250px;
+  background: rgb(197, 197, 197);
+  -webkit-box-shadow: -10px 0px 13px -7px #000000, 10px 0px 13px -7px #000000,
+    5px 5px 15px 5px rgba(0, 0, 0, 0.37);
+  box-shadow: -10px 0px 13px -7px #000000, 10px 0px 13px -7px #000000,
+    5px 5px 15px 5px rgba(0, 0, 0, 0.37);
+    margin-left: 40px;
+    margin-top: 40px;
+    cursor: pointer;
+
+    &:hover{
+        transform: scale(1.1);
+    }   
+
+  img {
+    width: 200px !important;
+    height: 160px !important;
+    margin-left: 25px;
+    margin-top: 10px;
+  }
+  .info-product {
+    padding-left: 2 0px;
+    h5 {
+      margin-bottom: 22px;
+    }
+    p {
+      margin-top: -15px;
+    }
+  }
+  .btn-view {
+    text-align: center;
+    padding-bottom: 5px;
+  }
+}
