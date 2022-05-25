@@ -11,7 +11,11 @@
       list-style-type: none;
       margin-left: 15px;
       font-weight: 600;
-      color: antiquewhite;
+      color: rgb(255, 255, 255);
+    }
+    ul li a {
+      color:  white;
+      text-decoration: none;
     }
   }
 }
