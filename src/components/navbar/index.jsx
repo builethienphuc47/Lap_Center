@@ -11,6 +11,7 @@ export default function Navbar() {
         <ul className="d-flex ">
           <li><Link to="/">Trang Chu</Link></li>
           <li>Lien He</li>
+          <li><Link to="Register">Register</Link></li>
           <li><Link to="Login">Login</Link></li>
           <li><Link to="About">About</Link></li>
         </ul>
