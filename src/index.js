@@ -11,6 +11,7 @@ import {
   Routes,
   Route,
 } from "react-router-dom";
+import Register from './pages/Register/Register';
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
@@ -21,6 +22,7 @@ root.render(
       <Route path="/" element={<Home />} />
       <Route path="About" element={<About />} />
       <Route path="Login" element={<Login />} />
+      <Route path="Register" element={<Register/>} />
 
     </Routes>
   </BrowserRouter>
