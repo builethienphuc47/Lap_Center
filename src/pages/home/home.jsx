@@ -4,11 +4,41 @@ import Navbar from "../../components/navbar";
 import { data } from "../../data";
 import { Form, Button } from "react-bootstrap";
 import "./styles.scss";
+import axios from "axios";
 export default function Home() {
   const [list, setList] = useState(data);
-  const [search, setSearch] = useState("");
+  const [search, setSearch] = useState([]);
   const [brand, setBrand] = useState("");
   const [price, setPrice] = useState();
+
+  // useEffect(() => {
+  //   console.log("ham nay chay dau tien");
+  //   fecthAPI();
+  // }, []);
+  // const fecthAPI = () => {
+  //   fetch("https://reqres.in/api/users/")
+  //     .then((response) => response.json())
+  //     .then((data) => {
+  //       console.log("Success:", data);
+  //     })
+  //     .catch((error) => {
+  //       console.error("Error:", error);
+  //     });
+  // };
+  axios
+    .get("https://lap-center.herokuapp.com/api/product")
+    .then(function (response) {
+      // handle success
+      console.log("Success:",response.data);
+      setList("Success:",response.data.products);
+    })
+    .catch(function (error) {
+      // handle error
+      console.log("Error:",error);
+    })
+    .then(function () {
+      // always executed
+    });
 
   const handleChange = (val) => {
     setSearch(val);
@@ -27,8 +57,8 @@ export default function Home() {
     );
   };
   const handleSelectChange = (e) => {
-    const val = e.target.value
-    setBrand(val)
+    const val = e.target.value;
+    setBrand(val);
     setList(
       data.filter((item) =>
         item?.brand?.toLowerCase()?.includes(val.toLowerCase())
@@ -36,21 +66,18 @@ export default function Home() {
     );
   };
   const sortPrice = (e) => {
-    const val = e.target.value
-    setPrice(val)
+    const val = e.target.value;
+    setPrice(val);
     // setList(
     //   data.filter((item) =>
     //     item?.price?.toLowerCase()?.includes(val.toLowerCase())
 
     //   )
     // );
-    if(val === "1") {
-      setList(
-        data.sort((a, b) => a.price - b.price)
-      )
-    }
-    else{
-     setList(data.sort((a, b) => b.price - a.price))
+    if (val === "1") {
+      setList(data.sort((a, b) => a.price - b.price));
+    } else {
+      setList(data.sort((a, b) => b.price - a.price));
     }
   };
   return (
@@ -101,9 +128,9 @@ export default function Home() {
           {list.map((item) => (
             <Card product={item} />
           ))}
-          {list.map((item) => (
+          {/* {list.map((item) => (
             <Card product={item} />
-          ))}
+          ))} */}
         </div>
       </div>
     </div>
